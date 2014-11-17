@@ -5,12 +5,24 @@
  */
 package jee7.catalogo.libros.modelo;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  *
  * @author Martin
  */
+@Entity
+@Table(name = "JEE_EDITORIAL")
 public class Editorial {
+    @Id
+    @GeneratedValue( strategy = GenerationType.IDENTITY)
     private int id;
+    @Column(name = "NOMBRE_EDITORIAL")
     private String nombre;
 
     @Override

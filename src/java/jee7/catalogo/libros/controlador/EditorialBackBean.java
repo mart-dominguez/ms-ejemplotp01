@@ -10,6 +10,7 @@ import java.util.List;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import jee7.catalogo.libros.dao.DAOMysql;
 import jee7.catalogo.libros.dao.EditorialDAO;
 import jee7.catalogo.libros.modelo.Editorial;
 

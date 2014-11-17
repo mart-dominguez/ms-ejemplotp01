@@ -16,6 +16,7 @@ import jee7.catalogo.libros.modelo.Editorial;
  * @author Martin
  */
 @ApplicationScoped
+@DAOMemoria
 public class EditorialDAOMemoria implements EditorialDAO{
 
     private List<Editorial> lista;
