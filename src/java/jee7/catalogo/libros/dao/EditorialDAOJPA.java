@@ -5,9 +5,7 @@
  */
 package jee7.catalogo.libros.dao;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ejb.Local;
 import javax.ejb.Stateless;
@@ -49,23 +47,29 @@ public class EditorialDAOJPA implements EditorialDAO {
 
     @Override
     public void agregar(Editorial edt) {
-        em.persist(edt);
+        //completar con el metodo del entity manager empleado para persistir
+        em.xxx(edt);        
     }
 
     @Override
     public void modificar(Editorial edt) {
-        em.merge(edt);
+        //completar con el metodo del entity manager que combina un objeto
+        // propio con uno admininistrado
+        em.xxx(edt);
     }
 
     @Override
     public void borrar(int id) {
-        Editorial aux = em.find(Editorial.class, id);
-        if(aux!=null) em.remove(aux);
+        //primero buscar la editorial
+        Editorial aux = em.xxx(Editorial.class, id);
+        //luego si la editorial se encontro usar el metodo para borrar
+        if(aux!=null) em.xxx(aux);
     }
 
     @Override
     public Editorial buscar(int id) {
-        return em.find(Editorial.class, id);
+        //usar el metodo para borrar
+        return em.xxx(Editorial.class, id);
     }
 
     @Override

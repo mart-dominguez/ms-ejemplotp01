@@ -7,7 +7,6 @@ package jee7.catalogo.libros.dao.util;
 
 import java.util.logging.Logger;
 import javax.annotation.Resource;
-import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.Dependent;
 import javax.enterprise.inject.Produces;
 import javax.enterprise.inject.spi.InjectionPoint;
@@ -28,7 +27,7 @@ public class UtilDao {
     
      
     @Produces @ConnTest
-    @PersistenceContext(unitName = "catalogoPU")
+    @COMPLETAR_CON_ANOTACION_CORRECTA(unitName = "catalogoPU")
     private EntityManager em;
     
     @Produces

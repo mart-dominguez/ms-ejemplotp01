@@ -17,12 +17,14 @@ import javax.persistence.Table;
  * @author Martin
  */
 @Entity
-@Table(name = "JEE_EDITORIAL")
+// anotacion para que la tabla se llame JEE_EDITORIAL
+@xxx(name = "JEE_EDITORIAL")
 public class Editorial {
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(name = "NOMBRE_EDITORIAL")
+// anotacion para que la tabla se llame NOMBRE_EDITORIAL    
+    @xxx(name = "NOMBRE_EDITORIAL")
     private String nombre;
 
     @Override
