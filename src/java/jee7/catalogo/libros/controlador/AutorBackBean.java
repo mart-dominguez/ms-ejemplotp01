@@ -5,6 +5,7 @@
  */
 package jee7.catalogo.libros.controlador;
 
+import java.io.Serializable;
 import java.util.List;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
@@ -23,7 +24,7 @@ import jee7.catalogo.libros.modelo.Autor;
 
 @Named(value = "autorCtrl")
 @ViewScoped
-public class AutorBackBean {
+public class AutorBackBean implements Serializable{
     private Autor unAutor;
     
     @Inject @ConnTest EntityManager em;
