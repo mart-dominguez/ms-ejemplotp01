@@ -2,22 +2,38 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <body>
 
         <ui:composition >
             <h:form id="abmLibro">
-                <h:panelGrid columns="1">
+                <h:panelGrid columns="1"
                     <span>ID</span>
-                    <h:inputText id="idEdt" value="#{editCtrl.editorialActual.id}" disabled="true" /> 
-                    <span>Nombre Editorial</span>
-                    <h:inputText id="nombreEdt" value="#{editCtrl.editorialActual.nombre}" disabled="#{empty editCtrl.editorialActual}" /> 
+                    <h:inputText id="idLibro" value="#{editCtrl.editorialActual.id}" disabled="true" /> 
+                    <span>Titulo</span>
+                    <h:inputText id="nombreLibro" value="#{libroCtrl.unLibro.titulo}" disabled="#{empty libroCtrl.unLibro}" /> 
+                    <span>Precio</span>
+                    <h:inputText id="precioLibro" value="#{libroCtrl.unLibro.precio}" disabled="#{empty libroCtrl.unLibro}" > 
+                        <f:convertNumber type="currency"></f:convertNumber>
+                    </h:inputText>
+                    <span>Fecha Publicacion</span>
+                    <h:inputText id="fechaLibro" value="#{libroCtrl.unLibro.fechaPublicacion}" disabled="#{empty libroCtrl.unLibro}" > 
+                        <f:convertDateTime pattern="dd/MM/yyyy" />
+                    </h:inputText>
+                    <span>Editorial</span>
+                    <h:selectOneMenu id="cmbEditLibro" value="#{libroCtrl.unLibro.editor}" disabled="#{empty libroCtrl.unLibro}" >                         
+                        <f:selectItems var="unaEdit" itemValue="#{unaEdit.id}" itemLabel="#{unaEdit.nombre}" value="#{editCtrl.listar}"></f:selectItems>
+                        <f:converter converterId="jee7.catalogo.libros.controlador.libroConverter" />                        
+                    </h:selectOneMenu>
+                    <span>Asignar Autores</span>
+                    
                 </h:panelGrid>
                 <p>
-                    <h:commandButton value="Nuevo" action="#{editCtrl.nuevo()}" />
-                    <h:commandButton value="Guardar" action="#{editCtrl.guardar()}" />
-                    <h:commandButton value="Borrar" action="#{editCtrl.borrar()}" />
+                    <h:commandButton value="Nuevo" action="#{libroCtrl.nuevo()}" />
+                    <h:commandButton value="Guardar" action="#{libroCtrl.guardar()}" />
+                    <h:commandButton value="Borrar" action="#{libroCtrl.borrar()}" />
                 </p>
             </h:form>
         </ui:composition>

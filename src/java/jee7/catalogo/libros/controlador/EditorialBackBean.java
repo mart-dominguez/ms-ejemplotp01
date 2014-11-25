@@ -10,12 +10,13 @@ import java.util.List;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import jee7.catalogo.libros.dao.DAOMysql;
 import jee7.catalogo.libros.dao.EditorialDAO;
 import jee7.catalogo.libros.modelo.Editorial;
 
 /**
- *
+ * EN ESTE CASO EL BACKBEAN será compacto y en una sola capa 
+ * tendra el entity manager y la validacion de logica.
+ * Es posible hacerlo, y tenemos todo en un componente CDI mucho mas liviano.
  * @author Martin
  */
 @Named("editCtrl")
@@ -42,6 +43,10 @@ public class EditorialBackBean implements Serializable{
         this.editorialActual = new Editorial();
         return null;
     }    
+    
+    public Editorial buscar(int id){
+        return editDao.buscar(id);
+    }
     
     /**
      * @return the editorialActual
