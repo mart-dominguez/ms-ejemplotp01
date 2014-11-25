@@ -48,28 +48,33 @@ public class EditorialDAOJPA implements EditorialDAO {
     @Override
     public void agregar(Editorial edt) {
         //completar con el metodo del entity manager empleado para persistir
-        em.xxx(edt);        
+        //em.xxx(edt);        
+        em.persist(edt);
     }
 
     @Override
     public void modificar(Editorial edt) {
         //completar con el metodo del entity manager que combina un objeto
         // propio con uno admininistrado
-        em.xxx(edt);
+        //em.xxx(edt);
+        em.merge(edt);
     }
 
     @Override
     public void borrar(int id) {
         //primero buscar la editorial
-        Editorial aux = em.xxx(Editorial.class, id);
+        //Editorial aux = em.xxx(Editorial.class, id);
+        Editorial aux = em.find(Editorial.class, id);
         //luego si la editorial se encontro usar el metodo para borrar
-        if(aux!=null) em.xxx(aux);
+        //if(aux!=null) em.xxx(aux);
+        if(aux!=null) em.remove(aux);
     }
 
     @Override
     public Editorial buscar(int id) {
         //usar el metodo para borrar
-        return em.xxx(Editorial.class, id);
+        //TO-DO: return em.xxx(Editorial.class, id);
+        return em.find(Editorial.class, id);
     }
 
     @Override

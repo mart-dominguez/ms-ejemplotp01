@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition >
+            <h2>Lista de Autores</h2>
+            <h:form id="frmLstEdit" >
+                <h:dataTable value="#{autorCtrl.listar()}" var="unAutor">
+                    <h:column>
+                        <f:facet name="header">
+                            ID
+                        </f:facet>
+                        #{unAutor.id}
+                    </h:column>                        
+                    <h:column>
+                        <f:facet name="header">
+                            Nombre
+                        </f:facet>
+                        #{unAutor.nombre}
+                    </h:column>                        
+                    <h:column>
+                        <f:facet name="header">
+                            Correo Electronico
+                        </f:facet>
+                        #{unAutor.correoElectronico}
+                    </h:column>                        
+                    <h:column>
+                        <h:commandLink id="cmdElegir" value="Seleccionar" >
+                            <f:setPropertyActionListener target="#{autorCtrl.unAutor}" value="#{unAutor}" />
+                        </h:commandLink>
+                    </h:column>                        
+                </h:dataTable>
+                
+            </h:form>
+        </ui:composition>
+
+    </body>
+</html>

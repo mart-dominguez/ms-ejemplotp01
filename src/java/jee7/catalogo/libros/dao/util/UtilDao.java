@@ -27,7 +27,8 @@ public class UtilDao {
     
      
     @Produces @ConnTest
-    @COMPLETAR_CON_ANOTACION_CORRECTA(unitName = "catalogoPU")
+    //COMPLETAR_CON_ANOTACION_CORRECTA(unitName = "catalogoPU")
+    @PersistenceContext(unitName = "catalogoPU")
     private EntityManager em;
     
     @Produces

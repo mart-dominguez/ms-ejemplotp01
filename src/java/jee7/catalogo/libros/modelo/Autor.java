@@ -12,40 +12,26 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 /**
  *
- * @author Martin
+ * @author Administrador
  */
 @Entity
 // anotacion para que la tabla se llame JEE_EDITORIAL
-@Table(name = "JEE_EDITORIAL")
-//xxxx(name = "JEE_EDITORIAL")
-public class Editorial  implements Serializable{
-    @Id
+@Table(name = "JEE_AUTOR")
+public class Autor implements Serializable {
+     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY)
     private int id;
-// anotacion para que la tabla se llame NOMBRE_EDITORIAL    
-    //@xxx(name = "NOMBRE_EDITORIAL")
-    @Column(name = "NOMBRE_EDITORIAL")    
     private String nombre;
-    
-    @OneToMany(mappedBy = "editor")    
-    private List<Libro> libros;
-    
+    @Column(name="CORREO_ELECTRONICO")
+    private String correoElectronico;
+    @ManyToMany(mappedBy = "autores")
+    private List<Libro> librosEscritos;
 
-    @Override
-    /** 
-     * verifica que dos objetos editorial son iguales
-     * es usado por las listas para comparar libros
-     */
-    public boolean equals(Object obj) {
-        return obj instanceof Editorial && ((Editorial) obj).id == id;
-    }
-
-    
     /**
      * @return the id
      */
@@ -75,18 +61,31 @@ public class Editorial  implements Serializable{
     }
 
     /**
-     * @return the libros
+     * @return the correoElectronico
      */
-    public List<Libro> getLibros() {
-        return libros;
+    public String getCorreoElectronico() {
+        return correoElectronico;
     }
 
     /**
-     * @param libros the libros to set
+     * @param correoElectronico the correoElectronico to set
      */
-    public void setLibros(List<Libro> libros) {
-        this.libros = libros;
+    public void setCorreoElectronico(String correoElectronico) {
+        this.correoElectronico = correoElectronico;
     }
-    
+
+    /**
+     * @return the librosEscritos
+     */
+    public List<Libro> getLibrosEscritos() {
+        return librosEscritos;
+    }
+
+    /**
+     * @param librosEscritos the librosEscritos to set
+     */
+    public void setLibrosEscritos(List<Libro> librosEscritos) {
+        this.librosEscritos = librosEscritos;
+    }
     
 }

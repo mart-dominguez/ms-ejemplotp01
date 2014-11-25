@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition >
+            <h:form id="abmLibro">
+                <h:panelGrid columns="1">
+                    <span>ID</span>
+                    <h:inputText id="idEdt" value="#{editCtrl.editorialActual.id}" disabled="true" /> 
+                    <span>Nombre Editorial</span>
+                    <h:inputText id="nombreEdt" value="#{editCtrl.editorialActual.nombre}" disabled="#{empty editCtrl.editorialActual}" /> 
+                </h:panelGrid>
+                <p>
+                    <h:commandButton value="Nuevo" action="#{editCtrl.nuevo()}" />
+                    <h:commandButton value="Guardar" action="#{editCtrl.guardar()}" />
+                    <h:commandButton value="Borrar" action="#{editCtrl.borrar()}" />
+                </p>
+            </h:form>
+        </ui:composition>
+
+    </body>
+</html>
