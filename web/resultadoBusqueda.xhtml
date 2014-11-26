@@ -9,11 +9,12 @@
         <ui:composition template="./templatePrincipal.xhtml">
 
             <ui:define name="top">
-                <h:link outcome="buscar.xhtml">Buscar...</h:link>
+                REsultado de busqueda de libros
             </ui:define>
 
             <ui:define name="left">
                 <h2>Opciones de administracion</h2>
+               <h2>Opciones de administracion</h2>
                 <h:link outcome="admin/editorial.xhtml">Editoriales</h:link>
                 <hr/>
                 <h:link outcome="admin/autor.xhtml">Autor</h:link>
@@ -23,7 +24,7 @@
             </ui:define>
 
             <ui:define name="content">
-                <h1> BIENVENIDO AL SISTEMA</h1>
+                    <ui:include src="listaResultado.xhtml"></ui:include>
             </ui:define>
 
         </ui:composition>

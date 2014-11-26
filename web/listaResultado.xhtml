@@ -10,7 +10,7 @@
         <ui:composition >
             <h2>Lista de Libros</h2>
             <h:form id="frmLstLibros" >
-                <h:dataTable value="#{libroCtrl.listar()}" var="unLibro">
+                <h:dataTable value="#{busquedaBackBean.resultadoBusqueda}" var="unLibro">
                     <h:column>
                         <f:facet name="header">
                             ID
@@ -43,12 +43,15 @@
                     </h:column>                        
 
                     <h:column>
-                        <h:commandLink id="cmdElegir" value="Seleccionar" >
-                            <f:setPropertyActionListener target="#{libroCtrl.unLibro}" value="#{unLibro}" />
+                        <h:commandLink id="cmdElegir" value="Agregar a Favoritos" action="#{busquedaBackBean.addToFavoritos()}" >
+                            <f:setPropertyActionListener target="#{busquedaBackBean.unLibroFavorito}" value="#{unLibro}" />
                         </h:commandLink>
                     </h:column>                        
                 </h:dataTable>
-                
+                <div>
+                    <h:commandButton action="#{busquedaBackBean.refinarBusqueda()}" value="Refinar Busqueda"></h:commandButton>
+                    <h:commandButton action="#{busquedaBackBean.nuevaBusqueda()}" value="Nueva Busqueda"></h:commandButton>
+                </div>
             </h:form>
         </ui:composition>
 

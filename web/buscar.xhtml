@@ -9,7 +9,7 @@
         <ui:composition template="./templatePrincipal.xhtml">
 
             <ui:define name="top">
-                <h:link outcome="buscar.xhtml">Buscar...</h:link>
+                top
             </ui:define>
 
             <ui:define name="left">
@@ -23,7 +23,7 @@
             </ui:define>
 
             <ui:define name="content">
-                <h1> BIENVENIDO AL SISTEMA</h1>
+                    <ui:include src="formBusqueda.xhtml"></ui:include>
             </ui:define>
 
         </ui:composition>

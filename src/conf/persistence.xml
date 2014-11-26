@@ -4,7 +4,12 @@
     <jta-data-source>jdbc/catalogo</jta-data-source>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
-      <property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+      <property name="javax.persistence.schema-generation.database.action" value="create"/>
+      <property name="eclipselink.logging.level" value="INFO"/>
+      <property name="eclipselink.jdbc.bind-parameters" value="true"/>
+      <property name="eclipselink.logging.session" value="true"/>
+  <property name="eclipselink.logging.level.sql" value="FINE"/>
+ <property name="eclipselink.logging.parameters" value="true"/>   
     </properties>
   </persistence-unit>
 </persistence>

@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition >
+            <h1>Buscar Libros</h1>
+            <h:form id="buscarLibros">
+                <h:panelGrid columns="2">
+                    <h:outputLabel id="lblEditorial" for="txtEditorial" value="Editorial:"></h:outputLabel>
+                    <h:inputText id="txtEditorial" value="#{busquedaBackBean.nombreEditorial}"  /> 
+                    <h:outputLabel id="lblTitulo" for="txtTitulo" value="Titulo Libro:"></h:outputLabel>
+                    <h:inputText id="txtTitulo" value="#{busquedaBackBean.titulo}"  /> 
+                    <h:outputLabel id="lblPrecioMin" for="txtPrecioMin" value="Precio Min:"></h:outputLabel>
+                    <h:inputText id="txtPrecioMin" value="#{busquedaBackBean.precioMinimo}" /> 
+                    <h:outputLabel id="lblPrecioMax" for="txtPrecioMax" value="Precio Maximo:"></h:outputLabel>
+                    <h:inputText id="txtPrecioMax" value="#{busquedaBackBean.precioMaximo}"  /> 
+                </h:panelGrid>
+                <p>
+                    <h:commandButton value="Buscar" action="#{busquedaBackBean.buscar()}" />
+                </p>
+            </h:form>
+        </ui:composition>
+
+    </body>
+</html>

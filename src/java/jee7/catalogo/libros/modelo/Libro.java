@@ -19,6 +19,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -29,6 +31,13 @@ import javax.persistence.TemporalType;
  */
 @Entity
 @Table(name="JEE_LIBRO")
+@NamedQueries({
+    @NamedQuery( name = "Libro.findById",query = "SELECT l From Libro l WHERE l.id = :P_ID"),
+    @NamedQuery( name = "Libro.findByTitulo",query = "SELECT l From Libro l WHERE l.titulo like :P_TITULO"),
+    @NamedQuery( name = "Libro.findByPrecio",query = "SELECT l From Libro l WHERE l.precio BETWEEN :P_PREC_MIN AND :P_PREC_MAX"),
+    @NamedQuery( name = "Libro.findByTituloPrecio",query = "SELECT l From Libro l WHERE l.titulo like :P_TITULO AND l.precio BETWEEN :P_PREC_MIN AND :P_PREC_MAX"),
+    @NamedQuery( name = "Libro.findByTituloEditorialPrecio",query = "SELECT l From Libro l WHERE l.titulo like :P_TITULO AND l.precio BETWEEN :P_PREC_MIN AND :P_PREC_MAX AND l.editor.nombre like :P_EDITOR"),
+})
 public class Libro implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

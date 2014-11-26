@@ -7,17 +7,19 @@
     <body>
 
         <ui:composition >
-            <h:form id="abmEditorial">
+           <h:form id="abmAutor">
                 <h:panelGrid columns="1">
                     <span>ID</span>
-                    <h:inputText id="idEdt" value="#{editCtrl.editorialActual.id}" disabled="true" /> 
-                    <span>Nombre Editorial</span>
-                    <h:inputText id="nombreEdt" value="#{editCtrl.editorialActual.nombre}" disabled="#{empty editCtrl.editorialActual}" /> 
+                    <h:inputText id="idAutor" value="#{autorCtrl.unAutor.id}" disabled="true" /> 
+                    <span>Nombre Autor</span>
+                    <h:inputText id="nombreEdt" value="#{autorCtrl.unAutor.nombre}" disabled="#{empty autorCtrl.unAutor}" /> 
+                    <span>Correo Electronico</span>
+                    <h:inputText id="correo" value="#{autorCtrl.unAutor.correoElectronico}" disabled="#{empty autorCtrl.unAutor}" /> 
                 </h:panelGrid>
                 <p>
-                    <h:commandButton value="Nuevo" action="#{editCtrl.nuevo()}" />
-                    <h:commandButton value="Guardar" action="#{editCtrl.guardar()}" />
-                    <h:commandButton value="Borrar" action="#{editCtrl.borrar()}" />
+                    <h:commandButton value="Nuevo" action="#{autorCtrl.nuevo()}" />
+                    <h:commandButton value="Guardar" action="#{autorCtrl.guardar()}" />
+                    <h:commandButton value="Borrar" action="#{autorCtrl.borrar()}" />
                 </p>
             </h:form>
         </ui:composition>
